@@ -1,0 +1,236 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="JatoApplicationModule">
+<head>
+    <title></title>
+    <script src="Scripts/angular.min.js"></script>
+
+    <script src="Scripts/jquery-2.2.0.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <link href="CSS/cerulean.bootstrap.min.css" rel="stylesheet" />
+    <link href="CSS/Site.css" rel="stylesheet" />
+    <script src="Scripts/angular-resource.min.js"></script>
+    <script src="Scripts/app.js"></script>
+    <script src="Controllers/UserController.js"></script>
+    <script src="Services/UserService.js"></script>
+</head>
+<body>
+
+    <div class="navbar navbar-default">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand">Jato Application</a>
+        </div>
+        <div class="navbar-collapse collapse navbar-responsive-collapse">
+            <ul class="nav navbar-nav"></ul>
+        </div>
+    </div>
+    <div class="btn-group btn-group-justified " style=" text-align: center" ng-controller="userController">
+        <!-- Login -->
+        <div id="divLogin" class="panel panel-primary " style=" width: 30%; height: 300px; margin-top: 3%; margin-right: 20px; float: center;">
+
+            <div id="divMessage" class="alert  alert-danger" role="alert">
+                {{GeneralMessage}}
+            </div>
+
+            <div class="panel-heading">
+                <h3 class="panel-title">Login</h3>
+            </div>
+            <div class="center-block">
+                <form class="form-group">
+                    <div class="form-group">
+                        <label class="col-sm-2 form-control-label">Username</label>
+                        <input type="text" id="txtuserName" ng-model="Member.userName" placeholder="User Name" autofocus class="form-control" tabindex="1" style="margin-bottom: 5px" />
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 form-control-label">Password</label>
+                        <input type="password" id="txtPassword" ng-model="Member.Password" placeholder="Password" class="form-control" tabindex="2" style="margin-bottom: 5px" />
+                    </div>
+                    <button class="btn btn-primary" ng-click="login(Member)" tabindex="3">Login</button>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                        New User
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Operations -->
+
+    <div id="divOperations" ng-controller="userController">
+
+
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#Sum" aria-controls="Sum" role="tab" data-toggle="tab">Addition</a></li>
+            <li role="presentation"><a href="#Sub" aria-controls="Sub" role="tab" data-toggle="tab">Subtraction</a></li>
+            <li role="presentation"><a href="#Multiply" aria-controls="Multiply" role="tab" data-toggle="tab">Multiply</a></li>
+            <li role="presentation"><a href="#Divide" aria-controls="Divide" role="tab" data-toggle="tab">Divide</a></li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="Sum" style="width: 40%; height: 300px; margin-top: 3%; margin-right: 20px; float: left;">
+                <form class="form-group" data-toggle="validator">
+                    <div class="form-group">
+                        <label class="col-sm-2 form-control-label">Number 1</label>
+
+                        <input type="text" id="txtSumNumber1" ng-model="Operation.number1" placeholder="" autofocus class="form-control" tabindex="1" style="margin-bottom: 5px"/>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 form-control-label">Number 2</label>
+                        <input type="text" id="txtSumNumber2" ng-model="Operation.number2" placeholder="" class="form-control" tabindex="2" style="margin-bottom: 5px"/>
+                    </div>
+                    <div class="form-group " tabindex="3">
+                        <label class="col-sm-2 form-control-label">Result : {{Result}} </label>
+
+                    </div>
+
+                   
+
+
+                </form>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" ng-click="Sum(Operation)">Sum</button>
+                   </div>
+                </div>
+
+
+            <div role="tabpanel" class="tab-pane" id="Sub">
+                <div role="tabpanel" class="tab-pane active" id="Sum" style="width: 40%; height: 300px; margin-top: 3%; margin-right: 20px; float: left;">
+                    <form class="form-group" data-toggle="validator">
+                        <div class="form-group">
+                            <label class="col-sm-2 form-control-label">Number 1</label>
+
+                            <input type="text" id="txtSubNumber1" ng-model="Operation.Subnumber1" placeholder="" autofocus class="form-control" tabindex="1" style="margin-bottom: 5px"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 form-control-label">Number 2</label>
+                            <input type="text" id="txtSubNumber2" ng-model="Operation.Subnumber2" placeholder="" class="form-control" tabindex="2" style="margin-bottom: 5px"/>
+                        </div>
+                        <div class="form-group " tabindex="3">
+                            <label class="col-sm-2 form-control-label">Result : {{ResultSub}} </label>
+
+                        </div>
+
+
+
+
+                    </form>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" ng-click="Sub(Operation)">Substraction</button>
+                    </div>
+                </div>
+            </div>
+
+            <div role="tabpanel" class="tab-pane" id="Multiply">
+                <div role="tabpanel" class="tab-pane">
+                    <div role="tabpanel" class="tab-pane active" style="width: 40%; height: 300px; margin-top: 3%; margin-right: 20px; float: left;">
+                        <form class="form-group" data-toggle="validator">
+                            <div class="form-group">
+                                <label class="col-sm-2 form-control-label">Number 1</label>
+
+                                <input type="text" id="txtMultplNumber1" ng-model="Operation.MultiplyNumber1" placeholder="" autofocus class="form-control" tabindex="1" style="margin-bottom: 5px" />
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 form-control-label">Number 2</label>
+                                <input type="text" id="txtMultplNumber2" ng-model="Operation.MultiplyNumber2" placeholder="" class="form-control" tabindex="2" style="margin-bottom: 5px" />
+                            </div>
+                            <div class="form-group " tabindex="3">
+                                <label class="col-sm-2 form-control-label">Result : {{MultiplyResult}} </label>
+
+                            </div>
+
+
+
+
+                        </form>
+                        <div class="modal-footer">
+                            <button class="btn btn-primary" ng-click="Multiply(Operation)">Multiply</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="Divide">
+              
+                    <div role="tabpanel" class="tab-pane">
+                        <div role="tabpanel" class="tab-pane active" style="width: 40%; height: 300px; margin-top: 3%; margin-right: 20px; float: left;">
+                            <form class="form-group" data-toggle="validator">
+                                <div class="form-group">
+                                    <label class="col-sm-2 form-control-label">Number 1</label>
+
+                                    <input type="text" id="txtDivNumber1" ng-model="Operation.DivideNumber1" placeholder="" autofocus class="form-control" tabindex="1" style="margin-bottom: 5px" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 form-control-label">Number 2</label>
+                                    <input type="text" id="txtDivNumber2" ng-model="Operation.DivideNumber2" placeholder="" class="form-control" tabindex="2" style="margin-bottom: 5px" />
+                                </div>
+                                <div class="form-group " tabindex="3">
+                                    <label class="col-sm-2 form-control-label">Result : {{DivideResult}} </label>
+
+                                </div>
+
+
+
+
+                            </form>
+                            <div class="modal-footer">
+                                <button class="btn btn-primary" ng-click="Divide(Operation)">Divide</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" ng-controller="userController">
+
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">New User</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-group">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" id="txtName" ng-model="NewMember.name" placeholder="Name" class="form-control" tabindex="1" style="margin-bottom: 5px" />
+                        </div>
+                        <div class="form-group">
+                            <label>Surname</label>
+                            <input type="text" id="txtPassword" ng-model="NewMember.surname" placeholder="Surname" class="form-control" tabindex="2" style="margin-bottom: 5px" />
+                        </div>
+                        <div class="form-group">
+                            <label>Usern Name</label>
+                            <input type="text" id="txtuserName" ng-model="NewMember.userName" placeholder="userName" autofocus class="form-control" tabindex="3" style="margin-bottom: 5px" />
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" id="txtPassword" ng-model="NewMember.password" placeholder="Password" class="form-control" tabindex="4" style="margin-bottom: 5px" />
+                        </div>
+
+
+
+
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" ng-click="RegisterMember(NewMember)" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

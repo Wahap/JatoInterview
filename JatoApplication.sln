@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JatoApplication", "JatoApplication\JatoApplication.csproj", "{EF967C3F-4FAD-4666-B57C-5DCDC3701DA5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JatoServices", "JatoServices\JatoServices.csproj", "{770A5F4B-7073-4E6B-9DF8-694BEB3898D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JatoTest.Tests", "JatoTest.Tests\JatoTest.Tests.csproj", "{8D69B36B-DE91-4589-8CC7-F9D8B9776587}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EF967C3F-4FAD-4666-B57C-5DCDC3701DA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF967C3F-4FAD-4666-B57C-5DCDC3701DA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF967C3F-4FAD-4666-B57C-5DCDC3701DA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF967C3F-4FAD-4666-B57C-5DCDC3701DA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{770A5F4B-7073-4E6B-9DF8-694BEB3898D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{770A5F4B-7073-4E6B-9DF8-694BEB3898D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{770A5F4B-7073-4E6B-9DF8-694BEB3898D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{770A5F4B-7073-4E6B-9DF8-694BEB3898D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D69B36B-DE91-4589-8CC7-F9D8B9776587}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D69B36B-DE91-4589-8CC7-F9D8B9776587}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D69B36B-DE91-4589-8CC7-F9D8B9776587}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D69B36B-DE91-4589-8CC7-F9D8B9776587}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

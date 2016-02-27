@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Validator</id>
+    <version>1.0.0</version>
+    <authors>Andrey Sergeev</authors>
+    <owners>Andrey Sergeev</owners>
+    <projectUrl>https://github.com/chyuck/Validator</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Model Validation Framework</description>
+    <releaseNotes />
+    <copyright>Copyright © CHYUCK 2014</copyright>
+    <tags>Validation Model</tags>
+  </metadata>
+</package>
