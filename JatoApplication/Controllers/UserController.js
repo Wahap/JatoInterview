@@ -7,6 +7,7 @@
     $scope.GeneralMessage = "";
     $scope.showAlert = false;
     $scope.Result;
+    $scope.onlyNumbers = /^[0-9]{1,99}([,.][0-9]{1,99})?$/;
 
     $('#divMessage').hide();
     $('#divOperations').hide();
@@ -76,6 +77,7 @@
 
             $scope.Result = data;
             $('#txtSumResult').value = data;
+            Operation.RSLT = data;
         }).error(function () {
 
             $scope.userAuthentication = 'Fail';

@@ -40,16 +40,16 @@
                 <h3 class="panel-title">Login</h3>
             </div>
             <div class="center-block">
-                <form class="form-group">
+                <form class="form-group" name="LoginForm">
                     <div class="form-group">
                         <label class="col-sm-2 form-control-label">Username</label>
                         <input type="text" id="txtuserName" ng-model="Member.userName" placeholder="User Name" autofocus class="form-control" required ng-minlength="3" tabindex="1" style="margin-bottom: 5px" />
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 form-control-label">Password</label>
-                        <input type="password" id="txtPassword" ng-model="Member.Password" placeholder="Password" class="form-control" tabindex="2" style="margin-bottom: 5px" />
+                        <input type="password" id="txtPassword" ng-model="Member.Password" placeholder="Password" class="form-control" required tabindex="2" style="margin-bottom: 5px" />
                     </div>
-                    <button class="btn btn-primary" ng-click="login(Member)" tabindex="3">Login</button>
+                    <button class="btn btn-primary" ng-click="login(Member)" tabindex="3" ng-disabled="LoginForm.$invalid">Login</button>
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
                         New User
                     </button>
@@ -73,54 +73,55 @@
         <!-- Tab panes -->
         <div class="tab-content">
             <div role="tabpanel" class="tab-pane active" id="Sum" style="width: 40%; height: 300px; margin-top: 3%; margin-right: 20px; float: left;">
-                <form class="form-group" data-toggle="validator">
+                <form class="form-group" data-toggle="validator" name="SumOper">
                     <div class="form-group">
-                        <label class="col-sm-2 form-control-label">Number 1</label>
+                        <label class="col-sm-3 form-control-label">Number 1</label>
 
-                        <input type="text" id="txtSumNumber1" ng-model="Operation.number1" placeholder="" autofocus class="form-control" tabindex="1" style="margin-bottom: 5px"/>
+                        <input type="text" id="txtSumNumber1" ng-model="Operation.number1" placeholder="" autofocus class="form-control" required ng-pattern="onlyNumbers" tabindex="1" style="margin-bottom: 5px" />
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 form-control-label">Number 2</label>
-                        <input type="text" id="txtSumNumber2" ng-model="Operation.number2" placeholder="" class="form-control" tabindex="2" style="margin-bottom: 5px"/>
+                        <label class="col-sm-3 form-control-label">Number 2</label>
+                        <input type="text" id="txtSumNumber2" ng-model="Operation.number2" placeholder="" class="form-control" required tabindex="2" ng-pattern="onlyNumbers" style="margin-bottom: 5px" />
                     </div>
                     <div class="form-group " tabindex="3">
-                        <label class="col-sm-2 form-control-label">Result : {{Result}} </label>
-
+                        <label class="col-lg-10 form-control-label">Result: {{Result}} </label>
+                        <br />
                     </div>
 
+
                    
-
-
                 </form>
-                <div class="modal-footer">
-                    <button class="btn btn-primary" ng-click="Sum(Operation)">Sum</button>
-                   </div>
+                <div class="modal-footer" >
+                    <button class=" btn btn-primary" ng-click="Sum(Operation)" ng-disabled="SumOper.$invalid">
+                        Sum
+                    </button>
                 </div>
+            </div>
+
+         
+
 
 
             <div role="tabpanel" class="tab-pane" id="Sub">
-                <div role="tabpanel" class="tab-pane active" id="Sum" style="width: 40%; height: 300px; margin-top: 3%; margin-right: 20px; float: left;">
-                    <form class="form-group" data-toggle="validator">
+                <div role="tabpanel" class="tab-pane active" id="Sub" style="width: 40%; height: 300px; margin-top: 3%; margin-right: 20px; float: left;">
+                    <form class="form-group" data-toggle="validator" name="SubOper">
                         <div class="form-group">
-                            <label class="col-sm-2 form-control-label">Number 1</label>
+                            <label class="col-sm-3 form-control-label">Number 1</label>
 
-                            <input type="text" id="txtSubNumber1" ng-model="Operation.Subnumber1" placeholder="" autofocus class="form-control" tabindex="1" style="margin-bottom: 5px"/>
+                            <input type="text" id="txtSubNumber1" required ng-pattern="onlyNumbers" ng-model="Operation.Subnumber1" placeholder="" autofocus class="form-control" tabindex="1" style="margin-bottom: 5px" />
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-2 form-control-label">Number 2</label>
-                            <input type="text" id="txtSubNumber2" ng-model="Operation.Subnumber2" placeholder="" class="form-control" tabindex="2" style="margin-bottom: 5px"/>
+                            <label class="col-sm-3 form-control-label">Number 2</label>
+                            <input type="text" id="txtSubNumber2" required ng-pattern="onlyNumbers" ng-model="Operation.Subnumber2" placeholder="" class="form-control" tabindex="2" style="margin-bottom: 5px" />
                         </div>
                         <div class="form-group " tabindex="3">
-                            <label class="col-sm-2 form-control-label">Result : {{ResultSub}} </label>
+                            <label class="col-lg-10 form-control-label">Result : {{ResultSub}} </label>
 
                         </div>
-
-
-
-
                     </form>
-                    <div class="modal-footer">
-                        <button class="btn btn-primary" ng-click="Sub(Operation)">Substraction</button>
+                    <div class="modal-footer" tabindex="4">
+                        
+                        <button class="btn btn-primary" ng-click="Sub(Operation)" ng-disabled="SubOper.$invalid">Substraction</button>
                     </div>
                 </div>
             </div>
@@ -128,62 +129,56 @@
             <div role="tabpanel" class="tab-pane" id="Multiply">
                 <div role="tabpanel" class="tab-pane">
                     <div role="tabpanel" class="tab-pane active" style="width: 40%; height: 300px; margin-top: 3%; margin-right: 20px; float: left;">
-                        <form class="form-group" data-toggle="validator">
+                        <form class="form-group" data-toggle="validator" name="MulOper">
                             <div class="form-group">
-                                <label class="col-sm-2 form-control-label">Number 1</label>
+                                <label class="col-sm-3 form-control-label">Number 1</label>
 
-                                <input type="text" id="txtMultplNumber1" ng-model="Operation.MultiplyNumber1" placeholder="" autofocus class="form-control" tabindex="1" style="margin-bottom: 5px" />
+                                <input type="text" id="txtMultplNumber1" required ng-pattern="onlyNumbers" ng-model="Operation.MultiplyNumber1" placeholder="" autofocus class="form-control" tabindex="1" style="margin-bottom: 5px" />
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-2 form-control-label">Number 2</label>
-                                <input type="text" id="txtMultplNumber2" ng-model="Operation.MultiplyNumber2" placeholder="" class="form-control" tabindex="2" style="margin-bottom: 5px" />
+                                <label class="col-sm-3 form-control-label">Number 2</label>
+                                <input type="text" id="txtMultplNumber2" required ng-pattern="onlyNumbers" ng-model="Operation.MultiplyNumber2" placeholder="" class="form-control" tabindex="2" style="margin-bottom: 5px" />
                             </div>
                             <div class="form-group " tabindex="3">
-                                <label class="col-sm-2 form-control-label">Result : {{MultiplyResult}} </label>
+                                <label class="col-lg-10 form-control-label">Result : {{MultiplyResult}} </label>
 
                             </div>
-
-
-
 
                         </form>
                         <div class="modal-footer">
-                            <button class="btn btn-primary" ng-click="Multiply(Operation)">Multiply</button>
+                            <button class="btn btn-primary" ng-click="Multiply(Operation)" ng-disabled="MulOper.$invalid">Multiply</button>
                         </div>
                     </div>
                 </div>
             </div>
             <div role="tabpanel" class="tab-pane" id="Divide">
-              
-                    <div role="tabpanel" class="tab-pane">
-                        <div role="tabpanel" class="tab-pane active" style="width: 40%; height: 300px; margin-top: 3%; margin-right: 20px; float: left;">
-                            <form class="form-group" data-toggle="validator">
-                                <div class="form-group">
-                                    <label class="col-sm-2 form-control-label">Number 1</label>
 
-                                    <input type="text" id="txtDivNumber1" ng-model="Operation.DivideNumber1" placeholder="" autofocus class="form-control" tabindex="1" style="margin-bottom: 5px" />
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-2 form-control-label">Number 2</label>
-                                    <input type="text" id="txtDivNumber2" ng-model="Operation.DivideNumber2" placeholder="" class="form-control" tabindex="2" style="margin-bottom: 5px" />
-                                </div>
-                                <div class="form-group " tabindex="3">
-                                    <label class="col-sm-2 form-control-label">Result : {{DivideResult}} </label>
+                <div role="tabpanel" class="tab-pane">
+                    <div role="tabpanel" class="tab-pane active" style="width: 40%; height: 300px; margin-top: 3%; margin-right: 20px; float: left;">
+                        <form class="form-group" data-toggle="validator" name="DivOper">
+                            <div class="form-group">
+                                <label class="col-sm-3 form-control-label">Number 1</label>
 
-                                </div>
-
-
-
-
-                            </form>
-                            <div class="modal-footer">
-                                <button class="btn btn-primary" ng-click="Divide(Operation)">Divide</button>
+                                <input type="text" id="txtDivNumber1" required ng-pattern="onlyNumbers" ng-model="Operation.DivideNumber1" placeholder="" autofocus class="form-control" tabindex="1" style="margin-bottom: 5px" />
                             </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 form-control-label">Number 2</label>
+                                <input type="text" id="txtDivNumber2" required ng-pattern="onlyNumbers" ng-model="Operation.DivideNumber2" placeholder="" class="form-control" tabindex="2" style="margin-bottom: 5px" />
+                            </div>
+                            <div class="form-group " tabindex="3">
+                                <label class="col-lg-10 form-control-label">Result : {{DivideResult}} </label>
+
+                            </div>
+
+                        </form>
+                        <div class="modal-footer">
+                            <button class="btn btn-primary" ng-click="Divide(Operation)" ng-disabled="DivOper.$invalid">Divide</button>
                         </div>
                     </div>
                 </div>
-
             </div>
+
+        </div>
         </div>
 
 
@@ -200,22 +195,22 @@
                     <h4 class="modal-title" id="myModalLabel">New User</h4>
                 </div>
                 <div class="modal-body">
-                    <form class="form-group">
+                    <form class="form-group" name="NewMemberForm">
                         <div class="form-group">
                             <label>Name</label>
-                            <input type="text" id="txtName" ng-model="NewMember.name" placeholder="Name" class="form-control" tabindex="1" style="margin-bottom: 5px" />
+                            <input type="text" id="txtName" ng-model="NewMember.name" placeholder="Name" required class="form-control" tabindex="1" style="margin-bottom: 5px" />
                         </div>
                         <div class="form-group">
                             <label>Surname</label>
-                            <input type="text" id="txtPassword" ng-model="NewMember.surname" placeholder="Surname" class="form-control" tabindex="2" style="margin-bottom: 5px" />
+                            <input type="text" id="txtPassword" ng-model="NewMember.surname" placeholder="Surname" required class="form-control" tabindex="2" style="margin-bottom: 5px" />
                         </div>
                         <div class="form-group">
                             <label>Usern Name</label>
-                            <input type="text" id="txtuserName" ng-model="NewMember.userName" placeholder="userName" autofocus class="form-control" tabindex="3" style="margin-bottom: 5px" />
+                            <input type="text" id="txtuserName" ng-model="NewMember.userName" placeholder="userName" required autofocus class="form-control" tabindex="3" style="margin-bottom: 5px" />
                         </div>
                         <div class="form-group">
                             <label>Password</label>
-                            <input type="password" id="txtPassword" ng-model="NewMember.password" placeholder="Password" class="form-control" tabindex="4" style="margin-bottom: 5px" />
+                            <input type="password" id="txtPassword" ng-model="NewMember.password" placeholder="Password" required class="form-control" tabindex="4" style="margin-bottom: 5px" />
                         </div>
 
 
@@ -225,7 +220,7 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" ng-click="RegisterMember(NewMember)" class="btn btn-primary">Save</button>
+                    <button type="button" ng-click="RegisterMember(NewMember)" ng-disabled="NewMemberForm.$invalid" class="btn btn-primary">Save</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 
                 </div>
