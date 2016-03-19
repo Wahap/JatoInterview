@@ -15,7 +15,7 @@ namespace JatoServices.Models
         {
             public MongoDBEntities() : base("name=MongoConnection") { }
             static MongoServer server = MongoServer.Create(ConfigurationManager.ConnectionStrings["MongoConnection"].ConnectionString.ToString());
-            MongoDatabase database = server.GetDatabase("MVCMongo");
+            MongoDatabase database = server.GetDatabase("JatoMongo");
 
 
             #region user
@@ -39,11 +39,11 @@ namespace JatoServices.Models
                     Id += 1;
                     MongoCollection<User> MCollection = database.GetCollection<User>("User");
                     BsonDocument doc = new BsonDocument { 
-                    {"Id",Id},
+                    {"Id",colleciton.Id},
                     {"Name",colleciton.Name},
                     {"Password",colleciton.Password},
                     {"Surname",colleciton.Surname},
-                    {"Username",colleciton.Username},
+                    {"Username",colleciton.Username}
                 };
 
                     IMongoQuery query = Query.EQ("Id", colleciton.Id);
@@ -80,7 +80,7 @@ namespace JatoServices.Models
                     Id += 1;
                     MongoCollection<UserOperations> MCollection = database.GetCollection<UserOperations>("UserOperations");
                     BsonDocument doc = new BsonDocument { 
-                    {"ID",Id},
+                    {"Id",Id},
                     {"Operation",colleciton.Operation},
                     {"Result",colleciton.Result},
                     {"FirstValue",colleciton.FirstValue},

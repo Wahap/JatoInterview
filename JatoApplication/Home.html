@@ -9,9 +9,11 @@
     <link href="CSS/cerulean.bootstrap.min.css" rel="stylesheet" />
     <link href="CSS/Site.css" rel="stylesheet" />
     <script src="Scripts/angular-resource.min.js"></script>
-    <script src="Scripts/app.js"></script>
+    <script src="Module/app.js"></script>
     <script src="Controllers/UserController.js"></script>
     <script src="Services/UserService.js"></script>
+    <script src="Controllers/UserOperationController.js"></script>
+    <script src="Services/UserOperationService.js"></script>
 </head>
 <body class="container">
 
@@ -59,7 +61,7 @@
     </div>
     <!-- Operations -->
 
-    <div id="divOperations" ng-controller="userController">
+    <div id="divOperations" ng-controller="UserOperationController">
 
 
         <!-- Nav tabs -->

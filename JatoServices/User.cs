@@ -7,6 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+
 namespace JatoServices
 {
     using System;
@@ -14,6 +17,8 @@ namespace JatoServices
     
     public partial class User
     {
+        [BsonId]
+        public ObjectId _id { get; set; }
         public int Id { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
