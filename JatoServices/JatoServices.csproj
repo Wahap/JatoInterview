@@ -158,7 +158,6 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abstract\IUserOperationRepository.cs" />
     <Compile Include="Abstract\IUserRepository.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -202,33 +201,39 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="JatoApplicationDB.Context.cs">
+    <Compile Include="Models\MultiplyOperation.cs" />
+    <Compile Include="Models\DivideOperation.cs" />
+    <Compile Include="Models\JatoApplicationDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>JatoApplicationDB.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="JatoApplicationDB.cs">
+    <Compile Include="Models\JatoApplicationDB.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>JatoApplicationDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="JatoApplicationDB.Designer.cs">
+    <Compile Include="Models\JatoApplicationDB.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>JatoApplicationDB.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\UserMongo.cs" />
-    <Compile Include="Models\UserOperationRepository.cs" />
+    <Compile Include="Models\AddOperation.cs" />
+    <Compile Include="Models\IOperatıon.cs" />
+    <Compile Include="Models\OperationHistoryRepository.cs" />
+    <Compile Include="Models\OperationInput.cs" />
+    <Compile Include="Models\OperationOutput.cs" />
+    <Compile Include="Models\SubOperation.cs" />
     <Compile Include="Models\UserRepository.cs" />
     <Compile Include="Models\UserRespositoryMongo.cs" />
-    <Compile Include="Operation.cs">
+    <Compile Include="Models\Operation.cs">
       <DependentUpon>JatoApplicationDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="User.cs">
+    <Compile Include="Models\User.cs">
       <DependentUpon>JatoApplicationDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="UserOperations.cs">
+    <Compile Include="Models\UserOperations.cs">
       <DependentUpon>JatoApplicationDB.tt</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -253,19 +258,19 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
-    <EntityDeploy Include="JatoApplicationDB.edmx">
+    <EntityDeploy Include="Models\JatoApplicationDB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>JatoApplicationDB.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="JatoApplicationDB.Context.tt">
+    <Content Include="Models\JatoApplicationDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>JatoApplicationDB.edmx</DependentUpon>
       <LastGenOutput>JatoApplicationDB.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="JatoApplicationDB.edmx.diagram">
+    <Content Include="Models\JatoApplicationDB.edmx.diagram">
       <DependentUpon>JatoApplicationDB.edmx</DependentUpon>
     </Content>
-    <Content Include="JatoApplicationDB.tt">
+    <Content Include="Models\JatoApplicationDB.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>JatoApplicationDB.edmx</DependentUpon>
       <LastGenOutput>JatoApplicationDB.cs</LastGenOutput>

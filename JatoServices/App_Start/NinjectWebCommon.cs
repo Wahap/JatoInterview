@@ -65,7 +65,8 @@ namespace JatoServices.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<IUserRepository>().To<UserRepository>();
-            kernel.Bind<IUserOperationRepository>().To<UserOperationRepository>();
+         
+            kernel.Bind<IOperationHistoryRepository>().To<OperationHistoryRepository>();
         }        
     }
 }

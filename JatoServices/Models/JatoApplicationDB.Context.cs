@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JatoServices
+namespace JatoServices.Models
 {
     using System;
     using System.Data.Entity;

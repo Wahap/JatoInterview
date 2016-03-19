@@ -7,22 +7,14 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
-
-namespace JatoServices
+namespace JatoServices.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class Operation
     {
-        [BsonId]
-        public ObjectId _id { get; set; }
         public int Id { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
-        public string Name { get; set; }
-        public string Surname { get; set; }
+        public string Operation1 { get; set; }
     }
 }
