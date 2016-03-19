@@ -34,7 +34,7 @@ namespace JatoServices.Models
                 try
                 {
                     int Id = 0;
-                    if (Users.Count() > 0)
+                    if (Users.Any())
                         Id = Users.Max(x => x.Id);
                     Id += 1;
                     MongoCollection<User> MCollection = database.GetCollection<User>("User");
@@ -75,7 +75,7 @@ namespace JatoServices.Models
                 try
                 {
                     int Id = 0;
-                    if (UOperations.Count() > 0)
+                    if (UOperations.Any())
                         Id = UOperations.Max(x => x.Id);
                     Id += 1;
                     MongoCollection<UserOperations> MCollection = database.GetCollection<UserOperations>("UserOperations");
