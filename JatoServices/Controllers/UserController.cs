@@ -23,18 +23,19 @@ namespace JatoServices.Controllers
         {
             this.repository = _userRepository;
         }
- 
+
         // GET api/user
         [Route("api/user")]
-        public IEnumerable<string> Get()
+        public IHttpActionResult Get()
         {
-            return new string[] { "value1", "value2" };
+            var user = repository.GetUsers();
+            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, user);
+            return Ok(response);
         }
         [HttpGet]
         [Route("api/user/Login")]
         public IHttpActionResult Login(string username, string password)
         {
-
             var user = repository.Login(username, password);
             if (user == false)
             {
@@ -46,13 +47,11 @@ namespace JatoServices.Controllers
             }
         }
 
-     
-
         // GET api/user/5
         [Route("api/user/{id?}")]
         public HttpResponseMessage Get(int id)
         {
-            var user = repository.GeTUser(id);
+            var user = repository.GetUser(id);
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, user);
             return response;
         }
@@ -62,7 +61,6 @@ namespace JatoServices.Controllers
         public IHttpActionResult RegisterNewMember(User data)
         {
             var user = new User();
-
             user.Username = data.Username;
             user.Name = data.Name;
             user.Surname = data.Surname;
@@ -70,8 +68,7 @@ namespace JatoServices.Controllers
 
             bool isSuccessful = repository.InsertUser(user);
 
-
-          if (isSuccessful == false)
+            if (isSuccessful == false)
             {
                 return NotFound();
             }
@@ -79,9 +76,7 @@ namespace JatoServices.Controllers
             {
                 return Ok();
             }
-          
-
         }
-     
+
     }
 }

@@ -1,12 +1,6 @@
 ﻿app.factory('userOperationFactory', function ($http) {
     return {
-        getUsersList: function () {
-            url = baseAddress + "UserOperation/";
-            return $http.get(url);
-        },
-      
 
-     
         Sum: function (parameters) {
             return $http({
                 method: 'GET',

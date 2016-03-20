@@ -11,6 +11,7 @@ namespace JatoServices.Abstract
     {
         bool Login(string userName, string password);
         bool InsertUser(User user);
-        User GeTUser(int id);
+        User GetUser(int id);
+        IQueryable<User> GetUsers();
     }
 }

@@ -21,38 +21,6 @@
               
             })
 
-        },
-        Sum: function (parameters) {
-            return $http({
-                method: 'GET',
-                url: baseAddress + 'Sum/',
-                params: parameters
-            })
-
-        },
-        Sub: function (parameters) {
-            return $http({
-                method: 'GET',
-                url: baseAddress + 'Sub/',
-                params: parameters
-            })
-
-        },
-        Multiply: function (parameters) {
-            return $http({
-                method: 'GET',
-                url: baseAddress + 'Multiply/',
-                params: parameters
-            })
-
-        },
-        Divide: function (parameters) {
-            return $http({
-                method: 'GET',
-                url: baseAddress + 'Divide/',
-                params: parameters
-            })
-
         }
     
     };

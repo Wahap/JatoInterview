@@ -219,7 +219,7 @@
       <DependentUpon>JatoApplicationDB.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\AddOperation.cs" />
-    <Compile Include="Models\IOperatıon.cs" />
+    <Compile Include="Abstract\IOperatıon.cs" />
     <Compile Include="Models\OperationHistoryRepository.cs" />
     <Compile Include="Models\OperationInput.cs" />
     <Compile Include="Models\OperationOutput.cs" />

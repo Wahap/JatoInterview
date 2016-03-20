@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using JatoServices.Common;
 
 namespace JatoServices.Models
 {
     public class DivideOperation : IOperation
     {
+
         public OperationOutput<int> Do(OperationInput<int> input)
         {
             var result = input.Num1 / input.Num2;

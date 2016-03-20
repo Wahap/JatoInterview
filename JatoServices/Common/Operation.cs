@@ -7,7 +7,7 @@ namespace JatoServices.Common
 {
     public class Operations
     {
-      public  enum Operation
+        public enum Operation
         {
             Sum = 1,
             Sub = 2,

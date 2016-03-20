@@ -53,7 +53,16 @@ namespace JatoServices.Models
         }
 
 
-        public User GeTUser(int id)
+        public IQueryable<User> GetUsers()
+        {
+            var query = from user in _jatodb.User
+                        select user;
+
+            return query.AsQueryable();
+        }
+
+
+        public User GetUser(int id)
         {
             var query = from user in _jatodb.User
                         where user.Id == id
@@ -61,10 +70,5 @@ namespace JatoServices.Models
 
             return query.SingleOrDefault();
         }
-
-
-
-
-
     }
 }
